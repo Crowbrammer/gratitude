@@ -5,6 +5,12 @@ async function main() {
     const pQuery = new PQuery({ user: process.env.DB_USER, password: process.env.DB_PASSWORD, db: process.env.DATABASE });
     let num;
     switch (process.argv[2]) {
+        case 'help':
+            const fs = require('fs');
+            const man = fs.readFileSync('./help.txt', 'utf8');
+            console.log();
+            console.log(man);
+            break;
         case 'prev':
             if (/--amt/.test(process.argv[3])) {
                 if (/all/.test(process.argv[3])) {
@@ -41,10 +47,3 @@ async function main() {
     process.exit(0);
 }
 main().catch(err => console.error(err));
-function ask(question) {
-    return new Promise((res, _) => {
-        rl.question(question, function (answer) {
-            res(answer);
-        });
-    });
-}

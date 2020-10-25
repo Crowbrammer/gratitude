@@ -1,0 +1,10 @@
+Gratitude Tracker Documentation
+
+Usage examples:
+
+    g <gratitude>         -> Stores gratitude
+    g prev                -> Shows the past ten gratitudes
+    g prev --amt=<number> -> Shows the past <number> gratitude(s)
+    g prev --amt=all      -> Shows all gratitudes
+
+Thank you for using the Gratitude Tracker!

@@ -7,6 +7,12 @@ async function main() {
     let num;
 
     switch (process.argv[2]) {
+        case 'help':
+            const fs = require('fs');
+            const man = fs.readFileSync('./help.txt', 'utf8');
+            console.log();
+            console.log(man);
+            break;
         case 'prev':
             if (/--amt/.test(process.argv[3])) {
                 if (/all/.test(process.argv[3])) {
@@ -25,7 +31,7 @@ async function main() {
             } else {
                 gs = await pQuery.query(`SELECT * FROM gratitude ORDER BY id DESC LIMIT ${num};`); // gsus! 
             }
-            
+
             console.log('\nWas grateful for:\n');
             gs.forEach(g => console.log(`'${g.grateful_for}' on:`, g.datetime_submitted));
             break;
@@ -43,11 +49,3 @@ async function main() {
 }
 
 main().catch(err => console.error(err));
-
-function ask(question: string) {
-    return new Promise((res, _) => {
-        rl.question(question, function(answer) {
-            res(answer);
-        });
-    });
-}
