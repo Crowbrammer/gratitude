@@ -1,0 +1,17 @@
+{
+  "name": "gratitude",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "prettyquery": "^1.8.3",
+    "sql-escape": "^1.0.1"
+  }
+}
